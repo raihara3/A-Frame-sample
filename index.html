@@ -26,19 +26,19 @@
         <img id="photo" src="./public/texture/photo.jpg" />
       </a-assets>
 
-      <a-entity position="0 2 0">
+      <a-entity position="0 4 0">
         <a-camera id="camera" look-controls cursor="rayOrigin: mouse" position="0 0 0" animation="property: position; easing: linear; dur: 1000"></a-camera>
       </a-entity>
       <a-entity light="type: ambient; color: #BBB; intensity: 1.2"></a-entity>
       <a-entity light="type: directional; color: #FFF; intensity: 0.2" position="0 1 1"></a-entity>
 
-      <a-entity id="lobby" position="0 -2 0">
+      <a-entity id="lobby" position="0 0 0" visible="true">
         <!-- object -->
         <a-gltf-model src="#box" position="-4.1 0.8 -4.1" scale="0.8 0.8 0.8" material="src: #wall"></a-gltf-model>
 
         <!-- wall right -->
         <a-plane height="2.2" width="1.5" position="4.9 4.5 0" scale="0.8 0.8 0.8" rotation="0 -90 0" material="color: white; src: #room1_door"></a-plane>
-        <a-gltf-model src="#door" position="5 0 0" scale="3.5 3 3" rotation="0 90 0" door-on-touch="room: room1"></a-gltf-model>
+        <a-gltf-model src="#door" position="5 0 0" scale="3.5 3 3" rotation="0 90 0" door-on-touch="room: room1" to="room1"></a-gltf-model>
         <a-box position="5 5 0" height="10" width="10" depth="0.005" rotation="0 -90 0" material="src: #wall"></a-box>
 
         <!-- wall left -->
@@ -56,7 +56,7 @@
         <a-box position="0 0 0" height="10" width="10" depth="0.005" rotation="-90 0 0" material="src: #floor"></a-box>
       </a-entity>
 
-      <a-entity id="room1" position="10.001 -2 0">
+      <a-entity id="room1" position="0 0 0" visible="false">
         <!-- wall front -->
         <a-entity position="4.95 3.5 -2" scale="1 1 1" rotation="0 -90 0">
           <a-plane position="0 0 0.054" height="2" width="2" rotation="0 0 0" material="color: white; src: #photo"></a-plane>

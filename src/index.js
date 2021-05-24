@@ -7,21 +7,24 @@ AFRAME.registerComponent('door-on-touch', {
   },
 
   init: function () {
-    const data = this.data
-    this.el.addEventListener('click', function() {
-      const camera = document.getElementById('camera')
-      const animation = camera.getAttribute('animation')
+    // const data = this.data
 
-      let toPos = '0 0 0'
-      if(data.room === 'room1') {
-        toPos = animation.to === `${lobbyPos.x} 0 ${lobbyPos.z}`
-          ? `${room1Pos.x} 0 ${room1Pos.z}`
-          : `${lobbyPos.x} 0 ${lobbyPos.z}`
+    const el = this.el
+    el.addEventListener('click', function() {
+      const destinationRoomId = el.getAttribute('to')
+      if(!destinationRoomId) {
+        console.error(new Error('Not found'))
+        return
       }
 
-      camera.setAttribute('animation', {
-        to: toPos,
-      })
+      const currentRoom = document.querySelector('a-entity[visible=true]')
+      if(!currentRoom) {
+        console.error(new Error('Current location unknown'))
+        return
+      }
+
+      currentRoom.setAttribute('visible', 'false')
+      document.querySelector(`#${destinationRoomId}`).setAttribute('visible', 'true')
     })
   }
 })

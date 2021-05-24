@@ -13,7 +13,7 @@ AFRAME.registerComponent('door-on-touch', {
     el.addEventListener('click', function() {
       const destinationRoomId = el.getAttribute('to')
       if(!destinationRoomId) {
-        console.error(new Error('Not found'))
+        console.error(new Error('No destination found'))
         return
       }
 
@@ -23,8 +23,14 @@ AFRAME.registerComponent('door-on-touch', {
         return
       }
 
+      const destinationRoom = document.querySelector(`#${destinationRoomId}`)
+      if(!destinationRoom) {
+        console.error(new Error('No destination found'))
+        return
+      }
+
       currentRoom.setAttribute('visible', 'false')
-      document.querySelector(`#${destinationRoomId}`).setAttribute('visible', 'true')
+      destinationRoom.setAttribute('visible', 'true')
     })
   }
 })

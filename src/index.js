@@ -31,6 +31,9 @@ AFRAME.registerComponent('door-on-touch', {
 
       currentRoom.setAttribute('visible', 'false')
       destinationRoom.setAttribute('visible', 'true')
+      const params = new URLSearchParams(location.search)
+      params.set('room', data.to)
+      history.pushState(null, null, `${location.origin}?${params.toString()}`)
     })
   }
 })

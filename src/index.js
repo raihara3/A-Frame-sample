@@ -3,27 +3,27 @@ const room1Pos = document.getElementById('room1').getAttribute('position')
 
 AFRAME.registerComponent('door-on-touch', {
   schema: {
-    room: {default: ''}
+    from: {default: ''},
+    to: {default: ''}
   },
 
   init: function () {
-    // const data = this.data
+    const data = this.data
 
     const el = this.el
     el.addEventListener('click', function() {
-      const destinationRoomId = el.getAttribute('to')
-      if(!destinationRoomId) {
+      if(!data.to || !data.from) {
         console.error(new Error('No destination found'))
         return
       }
 
-      const currentRoom = document.querySelector('a-entity[visible=true]')
+      const currentRoom = document.querySelector(`#${data.from}`)
       if(!currentRoom) {
         console.error(new Error('Current location unknown'))
         return
       }
 
-      const destinationRoom = document.querySelector(`#${destinationRoomId}`)
+      const destinationRoom = document.querySelector(`#${data.to}`)
       if(!destinationRoom) {
         console.error(new Error('No destination found'))
         return

@@ -38,7 +38,7 @@
 
         <!-- wall right -->
         <a-plane height="2.2" width="1.5" position="4.9 4.5 0" scale="0.8 0.8 0.8" rotation="0 -90 0" material="color: white; src: #room1_door"></a-plane>
-        <a-gltf-model src="#door" position="5 0 0" scale="3.5 3 3" rotation="0 90 0" door-on-touch="room: room1" to="room1"></a-gltf-model>
+        <a-gltf-model src="#door" position="5 0 0" scale="3.5 3 3" rotation="0 90 0" door-on-touch="from: lobby; to: room1"></a-gltf-model>
         <a-box position="5 5 0" height="10" width="10" depth="0.005" rotation="0 -90 0" material="src: #wall"></a-box>
 
         <!-- wall left -->
@@ -56,30 +56,8 @@
         <a-box position="0 0 0" height="10" width="10" depth="0.005" rotation="-90 0 0" material="src: #floor"></a-box>
       </a-entity>
 
-      <a-entity id="room1" position="0 0 0" visible="false">
+      <a-entity id="room1" position="0 0 0" rotation="0 -90 0" visible="false">
         <!-- wall front -->
-        <a-entity position="4.95 3.5 -2" scale="1 1 1" rotation="0 -90 0">
-          <a-plane position="0 0 0.054" height="2" width="2" rotation="0 0 0" material="color: white; src: #photo"></a-plane>
-          <a-box position="0 0 0" height="2.2" width="2.2" depth="0.1" rotation="0 0 0" material="src: #wood"></a-box>
-        </a-entity>
-        <a-entity position="4.95 3.5 2" scale="1 1 1" rotation="0 -90 0">
-          <a-plane position="0 0 0.054" height="2" width="2" rotation="0 0 0" material="color: white; src: #photo"></a-plane>
-          <a-box position="0 0 0" height="2.2" width="2.2" depth="0.1" rotation="0 0 0" material="src: #wood"></a-box>
-        </a-entity>
-        <a-box position="0 5 -5" height="10" width="10" depth="0.005" rotation="0 0 0" material="src: #wall"></a-box>
-
-        <!-- wall right -->
-        <a-entity position="-2 3.5 4.95" scale="1 1 1" rotation="0 -180 0">
-          <a-plane position="0 0 0.054" height="2" width="2" rotation="0 0 0" material="color: white; src: #photo"></a-plane>
-          <a-box position="0 0 0" height="2.2" width="2.2" depth="0.1" rotation="0 0 0" material="src: #wood"></a-box>
-        </a-entity>
-        <a-entity position="2 3.5 4.95" scale="1 1 1" rotation="0 -180 0">
-          <a-plane position="0 0 0.054" height="2" width="2" rotation="0 0 0" material="color: white; src: #photo"></a-plane>
-          <a-box position="0 0 0" height="2.2" width="2.2" depth="0.1" rotation="0 0 0" material="src: #wood"></a-box>
-        </a-entity>
-        <a-box position="5 5 0" height="10" width="10" depth="0.005" rotation="0 -90 0" material="src: #wall"></a-box>
-
-        <!-- wall left -->
         <a-entity position="-2 3.5 -4.95" scale="1 1 1" rotation="0 0 0">
           <a-plane position="0 0 0.054" height="2" width="2" rotation="0 0 0" material="color: white; src: #photo"></a-plane>
           <a-box position="0 0 0" height="2.2" width="2.2" depth="0.1" rotation="0 0 0" material="src: #wood"></a-box>
@@ -88,10 +66,33 @@
           <a-plane position="0 0 0.054" height="2" width="2" rotation="0 0 0" material="color: white; src: #photo"></a-plane>
           <a-box position="0 0 0" height="2.2" width="2.2" depth="0.1" rotation="0 0 0" material="src: #wood"></a-box>
         </a-entity>
-        <a-plane position="-4.95 3.5 3.1" height="2.2" width="1.5" rotation="0 90 0" material="color: white; src: #twitter" twitter-on-touch="url: https://twitter.com/raihara3"></a-plane>
+        <a-box position="0 5 -5" height="10" width="10" depth="0.005" rotation="0 0 0" material="src: #wall"></a-box>
+
+        <!-- wall right -->
+        <a-entity position="4.95 3.5 -2" scale="1 1 1" rotation="0 -90 0">
+          <a-plane position="0 0 0.054" height="2" width="2" rotation="0 0 0" material="color: white; src: #photo"></a-plane>
+          <a-box position="0 0 0" height="2.2" width="2.2" depth="0.1" rotation="0 0 0" material="src: #wood"></a-box>
+        </a-entity>
+        <a-entity position="4.95 3.5 2" scale="1 1 1" rotation="0 -90 0">
+          <a-plane position="0 0 0.054" height="2" width="2" rotation="0 0 0" material="color: white; src: #photo"></a-plane>
+          <a-box position="0 0 0" height="2.2" width="2.2" depth="0.1" rotation="0 0 0" material="src: #wood"></a-box>
+        </a-entity>
+        <a-box position="5 5 0" height="10" width="10" depth="0.005" rotation="0 -90 0" material="src: #wall"></a-box>
+
+        <!-- wall left -->
+        <a-entity position="-4.95 3.5 2" scale="1 1 1" rotation="0 90 0">
+          <a-plane position="0 0 0.054" height="2" width="2" rotation="0 0 0" material="color: white; src: #photo"></a-plane>
+          <a-box position="0 0 0" height="2.2" width="2.2" depth="0.1" rotation="0 0 0" material="src: #wood"></a-box>
+        </a-entity>
+        <a-entity position="-4.95 3.5 -2" scale="1 1 1" rotation="0 90 0">
+          <a-plane position="0 0 0.054" height="2" width="2" rotation="0 0 0" material="color: white; src: #photo"></a-plane>
+          <a-box position="0 0 0" height="2.2" width="2.2" depth="0.1" rotation="0 0 0" material="src: #wood"></a-box>
+        </a-entity>
         <a-box position="-5 5 0" height="10" width="10" depth="0.005" rotation="0 90 0" material="src: #wall"></a-box>
 
         <!-- wall back -->
+        <a-plane position="3.1 3.5 4.95" height="2.2" width="1.5" rotation="0 -180 0" material="color: white; src: #twitter" twitter-on-touch="url: https://twitter.com/raihara3"></a-plane>
+        <a-gltf-model src="#door" position="0 0 5" scale="3.5 3 3" rotation="0 -180 0" door-on-touch="from: room1; to: lobby" to="lobby"></a-gltf-model>
         <a-box position="0 5 5" height="10" width="10" depth="0.005" rotation="0 180 0" material="src: #wall"></a-box>
 
         <!-- floor -->
